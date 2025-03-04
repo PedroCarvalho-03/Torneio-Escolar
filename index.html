@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competição de Futsal</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Competição de Futsal</h1>
+        <p>Digite "G" para vitória ou "P" para derrota em cada partida:</p>
+        <div>
+            <input type="text" id="partida1" maxlength="1" placeholder="Partida 1">
+            <input type="text" id="partida2" maxlength="1" placeholder="Partida 2">
+            <input type="text" id="partida3" maxlength="1" placeholder="Partida 3">
+            <input type="text" id="partida4" maxlength="1" placeholder="Partida 4">
+            <input type="text" id="partida5" maxlength="1" placeholder="Partida 5">
+            <input type="text" id="partida6" maxlength="1" placeholder="Partida 6">
+        </div>
+        <button onclick="calcularPontos()">Calcular Pontos</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularPontos() {
+            const partidas = [
+                document.getElementById('partida1').value.toUpperCase(),
+                document.getElementById('partida2').value.toUpperCase(),
+                document.getElementById('partida3').value.toUpperCase(),
+                document.getElementById('partida4').value.toUpperCase(),
+                document.getElementById('partida5').value.toUpperCase(),
+                document.getElementById('partida6').value.toUpperCase()
+            ];
+
+            let totalPontos = 0;
+
+            partidas.forEach(resultado => {
+                if (resultado === 'G') {
+                    totalPontos += 3; // Vitória: 3 pontos
+                } else if (resultado === 'P') {
+                    totalPontos += 1; // Derrota: 1 ponto
+                }
+            });
+
+            // Exibe o resultado
+            document.getElementById('resultado').textContent = `Total de pontos: ${totalPontos}`;
+        }
+    </script>
+</body>
+</html>
